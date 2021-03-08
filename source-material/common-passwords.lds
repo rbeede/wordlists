@@ -1,0 +1,13 @@
+localclerk
+localadmin
+clerk123
+ldsclerk
+Pioneer47
+Pioneer47!
+Pioner47
+Pioner47!
+alma3738
+ward
+stake
+seventy
+apostle
