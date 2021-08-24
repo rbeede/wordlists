@@ -25,9 +25,38 @@ cat "$WORKFILE.SecLists.part" >> "$WORKFILE"
 
 #####
 
+git clone https://github.com/kaonashi-passwords/Kaonashi
 
+transmission-cli Kaonashi/wordlists/kaonashi.7z.torrent
+
+7z e kaonashi.7z
+
+cat kaonashi.txt >> "$WORKFILE"
 
 #####
+
+# https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm
+
+transmission-cli https://crackstation.net/downloads/crackstation.txt.gz.torrent
+
+7z e crackstation.txt.gz
+
+cat realuniq.lst >> "$WORKFILE"
+
+#####
+
+git clone https://github.com/kennyn510/wpa2-wordlists.git
+
+cat wpa2-wordlists/PlainText/* >> "$WORKFILE"
+
+find wpa2-wordlists/Wordlists/ -name '*.gz' -exec zcat {} \; >> "$WORKFILE"
+
+find wpa2-wordlists/Wordlists/ -type f ! -name '*.gz' -exec cat {} \; >> "$WORKFILE"
+
+#####
+
+
+##################################################
 sort --unique --output "$WORKFILE"     "$WORKFILE"
 
 wc --lines "$WORKFILE"
