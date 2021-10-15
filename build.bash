@@ -130,10 +130,11 @@ cat names.txt >> "$WORKFILE"
 
 
 ##################################################
-sort --unique --output "$WORKFILE"     "$WORKFILE"
 
-wc --lines "$WORKFILE"
+sort --unique --parallel     --output "${WORKFILE}.sorted"     "$WORKFILE"
+
+wc --lines "${WORKFILE}.sorted"
 
 # John the Ripper 1.9.0-jumbo-1 OMP
-john --config=john-rules.conf --rules --wordlist="$WORKFILE" --stdout > "$WORKFILE.ruled"
+john --config=john-rules.conf --rules --wordlist="${WORKFILE}.sorted" --stdout > "${WORKFILE}.ruled"
 ```
