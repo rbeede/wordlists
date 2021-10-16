@@ -138,7 +138,7 @@ cat names.txt >> "$WORKFILE"
 
 ##################################################
 
-sort --unique --parallel     --output "${WORKFILE}.sorted"     "$WORKFILE"
+sort --unique --parallel 8    --output "${WORKFILE}.sorted"     "$WORKFILE"
 
 wc --lines "${WORKFILE}.sorted"
 
