@@ -137,4 +137,4 @@ wc --lines "${WORKFILE}.sorted"
 
 # John the Ripper 1.9.0-jumbo-1 OMP
 john --config=john-rules.conf --rules --wordlist="${WORKFILE}.sorted" --stdout --input-encoding=UTF8 > "${WORKFILE}.ruled"
-```
+
