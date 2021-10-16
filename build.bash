@@ -12,10 +12,10 @@ cd "$WORK_DIR"
 # Grab just words without any numbers or punctuation
 sed --expression 's/[^a-zA-Z]/ /g' $SCRIPT_DIR/source-material/{book-of-mormon-2008.txt,prophets.txt,standard-works-83501-eng.txt} | sed --expression 's/\s\+/\n/g' > "$WORKFILE"
 
-cat $SCRIPT_DIR/common-passwords.lds >> "$WORKFILE"
-cat $SCRIPT_DIR/unitnumbers.txt >> "$WORKFILE"
+cat $SCRIPT_DIR/source-material/common-passwords.lds >> "$WORKFILE"
+cat $SCRIPT_DIR/source-material/unitnumbers.txt >> "$WORKFILE"
 
-cat $SCRIPT_DIR/book-names.txt >> "$WORKFILE"
+cat $SCRIPT_DIR/source-material/book-names.txt >> "$WORKFILE"
 
 # Now add another version with numbers added
 
