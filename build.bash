@@ -17,6 +17,13 @@ cat $SCRIPT_DIR/unitnumbers.txt >> "$WORKFILE"
 
 cat $SCRIPT_DIR/book-names.txt >> "$WORKFILE"
 
+# Now add another version with numbers added
+
+# John the Ripper 1.9.0-jumbo-1 OMP
+john --config=john-rules.conf --rules --wordlist="${WORKFILE}" --stdout --input-encoding=UTF8 > "${WORKFILE}.ruled"
+
+mv "${WORKFILE}.ruled" "${WORKFILE}"
+
 #####
 
 git clone https://github.com/danielmiessler/SecLists.git
@@ -134,7 +141,4 @@ cat names.txt >> "$WORKFILE"
 sort --unique --parallel     --output "${WORKFILE}.sorted"     "$WORKFILE"
 
 wc --lines "${WORKFILE}.sorted"
-
-# John the Ripper 1.9.0-jumbo-1 OMP
-john --config=john-rules.conf --rules --wordlist="${WORKFILE}.sorted" --stdout --input-encoding=UTF8 > "${WORKFILE}.ruled"
 
