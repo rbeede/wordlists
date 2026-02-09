@@ -135,10 +135,24 @@ cat darkc0de.lst >> "$WORKFILE"
 cat names.txt >> "$WORKFILE"
 
 
+##################################################
+
+git clone https://github.com/david-palma/wordlists
+
+find wordlists -type f -exec cat {} +  >> "$WORKFILE"
+
+##################################################
+
+aria2c https://weakpass.com/download/2033/rockyou2024.txt.7z.torrent
+
+7z e rockyou2024.txt.7z
+
+cat rockyou2024.txt >> "$WORKFILE"
 
 ##################################################
 
 sort --unique --parallel 8    --output "${WORKFILE}.sorted"     "$WORKFILE"
 
 wc --lines "${WORKFILE}.sorted"
+
 
