@@ -139,7 +139,10 @@ cat names.txt >> "$WORKFILE"
 
 git clone https://github.com/david-palma/wordlists
 
-find wordlists -type f -exec cat {} +  >> "$WORKFILE"
+find wordlists/leaked-passwords -type f -exec cat {} +  >> "$WORKFILE"
+find wordlists/other -type f -exec cat {} +  >> "$WORKFILE"
+find wordlists/password-dictionaries -type f -exec cat {} +  >> "$WORKFILE"
+find wordlists/passwords-WPA -type f -exec cat {} +  >> "$WORKFILE"
 
 ##################################################
 
@@ -154,5 +157,6 @@ cat rockyou2024.txt >> "$WORKFILE"
 sort --unique --parallel 8    --output "${WORKFILE}.sorted"     "$WORKFILE"
 
 wc --lines "${WORKFILE}.sorted"
+
 
 
