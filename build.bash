@@ -154,6 +154,16 @@ cat rockyou2024.txt >> "$WORKFILE"
 
 ##################################################
 
+aria2c https://weakpass.com/download/2088/all_in_one.txt.7z
+
+7z e all_in_one.txt.7z
+
+cat all_in_one.txt >> "$WORKFILE"
+
+
+##################################################
+##################################################
+
 sort --unique --parallel 8    --output "${WORKFILE}.sorted"     "$WORKFILE"
 
 wc --lines "${WORKFILE}.sorted"
